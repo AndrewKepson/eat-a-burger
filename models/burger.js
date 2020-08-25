@@ -1,29 +1,29 @@
-const orm = require('../config/orm');
+const orm = require("../config/orm");
 
 const burger = {
-	allBurgers: (cb) => {
-		orm.selectAll('burgers', (data) => {
-			cb(data);
-		});
-	},
+    showBurgers: (cb) => {
+        orm.selectAll("burgers", data => {
+            cb(data);
+        });
+    },
 
-	createBurger: (insertData, cb) => {
-		orm.insertOne('burgers', insertData, (result) => {
-			cb(result);
-		});
-	},
+    addBurger: (insertData, cb) => {
+        orm.insertOne("burgers", insertData, result => {
+            cb(result);
+        })
+    },
 
-	updateBurger: (updateData, condition, cb) => {
-		orm.updateOne('burgers', updateData, condition, (result) => {
-			cb(result);
-		});
-	},
+    updateBurger: (updateData, condition, cb) => {
+        orm.updateOne("burgers", updateData, condition, result => {
+            cb(result);
+        })
+    },
 
-	deleteBurger: (condition, cb) => {
-		orm.deleteOne('burgers', condition, (result) => {
-			cb(result);
-		});
-	}
+    deleteBurger: (condition, cb) => {
+        orm.deleteOne("burgers", condition, result => {
+            cb(result);
+        })
+    }
 };
 
 module.exports = burger;
