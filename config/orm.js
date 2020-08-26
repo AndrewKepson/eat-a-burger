@@ -7,7 +7,7 @@ const connection = require("../config/connection.js");
 // The above helper function loops through and creates an array of question marks - ["?", "?", "?"] - and turns it into a string.
 // ["?", "?", "?"].toString() => "?,?,?";
 function printQuestionMarks(num) {
-  const arr = [];
+  let arr = [];
 
   for (let i = 0; i < num; i++) {
     arr.push("?");
@@ -22,7 +22,7 @@ function objToSql(ob) {
 
   // loop through the keys and push the key/value as a string int arr
   for (const key in ob) {
-    const value = ob[key];
+    let value = ob[key];
     // check to skip hidden properties
     if (Object.hasOwnProperty.call(ob, key)) {
       // if string with spaces, add quotations (Lana Del Grey => 'Lana Del Grey')
@@ -42,7 +42,7 @@ function objToSql(ob) {
 // Object for all our SQL statement functions.
 const orm = {
   all: function(tableInput, cb) {
-    const queryString = "SELECT * FROM " + tableInput + ";";
+    let queryString = "SELECT * FROM " + tableInput + ";";
     connection.query(queryString, function(err, result) {
       if (err) {
         throw err;
@@ -51,7 +51,7 @@ const orm = {
     });
   },
   create: function(table, cols, vals, cb) {
-    const queryString = "INSERT INTO " + table;
+    let queryString = "INSERT INTO " + table;
 
     queryString += " (";
     queryString += cols.toString();
@@ -72,7 +72,7 @@ const orm = {
   },
   // An example of objColVals would be {name: panther, sleepy: true}
   update: function(table, objColVals, condition, cb) {
-    const queryString = "UPDATE " + table;
+    let queryString = "UPDATE " + table;
 
     queryString += " SET ";
     queryString += objToSql(objColVals);
