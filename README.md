@@ -10,6 +10,6 @@ as the ORM.
 The application will display a list of burgers on the start. Using the buttons you can choose to devour the burger, or save a burger for later. You can also add your own burgers
 to the list. 
 
-<img src="./public/assets/images/burgerscreenshot.png">
+<img src=".\public\assets\images\burgersceenshot.png">
 
 https://shrouded-ravine-82016.herokuapp.com/
